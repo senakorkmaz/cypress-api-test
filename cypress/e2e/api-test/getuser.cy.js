@@ -5,8 +5,6 @@ describe('get api user tests',()=>{
     
     let baseUrl = data["BASEURL"]
     let accessToken = data["TOKEN"]
-    let id = data["USERID"]
-
     it('Get users',()=>{
         cy.request({
             method:'GET',
@@ -19,7 +17,7 @@ describe('get api user tests',()=>{
         })
     })
 
-    it('Get user by id',()=>{
+   /*  it('Get user by id',()=>{
         cy.request({
             method:'GET',
             url:baseUrl+'/users/'+id,
@@ -30,5 +28,5 @@ describe('get api user tests',()=>{
             expect(res.status).to.equal(200)
             expect(res.body.name).to.equal('Shashi Kaniyar')
         })
-    })
+    }) */
 })

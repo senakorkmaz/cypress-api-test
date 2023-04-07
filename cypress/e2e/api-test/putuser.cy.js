@@ -46,25 +46,34 @@ describe('post api user tests',()=>{
         
     })
 
-    it('Check user test',()=>{
-        
+    it('Update user test',()=>{
+        for (var i = 0; i< 10; i++){
+            randomText += pattern.charAt(Math.floor(Math.random() * pattern.length));
+        }
+            emailText = randomText + '@gmail.com'
+        let newName = 'senanur korkmaz'
+        let newMail =emailText
+
         cy.readFile("cypress/fixtures/createUserData.json").then((createData)=>{
             cy.request({
-                method:'GET',
+                method:'PUT',
                 url: baseUrl + '/users/' + createData.id,
                 headers:{
                     'Authorization': 'Bearer ' + accessToken
                 },
-
+                body:{
+                    "name":newName,
+                    "email":newMail,
+                }
+                
             }).then((res)=>{
                 cy.log(JSON.stringify(res))
                 cy.log(JSON.stringify(res.body))
                 expect(res.status).to.equal(200)
                 expect(res.body).has.property('id',createData.id)
-                expect(res.body).has.property('email',createData.email)
-                expect(res.body).has.property('name',createData.name)
-                expect(res.body).has.property('gender',createData.gender)
-                expect(res.body).has.property('status',createData.status)
+                expect(res.body).has.property('email',newMail)
+                expect(res.body).has.property('name',newName)
+                
             })
         })
         
