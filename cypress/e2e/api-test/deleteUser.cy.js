@@ -61,8 +61,7 @@ describe('post api user tests',()=>{
                 expect(res.status).to.equal(204)
             })
         })
-        
-        
+         
     })
 
 })

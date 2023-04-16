@@ -50,7 +50,7 @@ describe('post api user tests',()=>{
         for (var i = 0; i< 10; i++){
             randomText += pattern.charAt(Math.floor(Math.random() * pattern.length));
         }
-            emailText = randomText + '@gmail.com'
+        emailText = randomText + '@gmail.com'
         let newName = 'senanur korkmaz'
         let newMail =emailText
 
